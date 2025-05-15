@@ -23,5 +23,8 @@ vim.keymap.set("n", "<leader>w", function()
   vim.cmd("w")
 end)
 
+vim.keymap.set('n', 'y', '"+y')
+vim.keymap.set('v', 'y', '"+y')
+
 vim.keymap.set("n", "<leader>oc", "O{/*")
 vim.keymap.set("n", "<leader>op", "o*/}")
