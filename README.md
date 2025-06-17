@@ -1,4 +1,4 @@
-# My Dotfiles
+# My Dotfiles for Arch + Hyprland
 
 This repository contains my personal config files for various tools to enhance productivity and aesthetics in the terminal. Below is a preview of the setup:
 
