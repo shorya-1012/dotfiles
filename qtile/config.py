@@ -14,6 +14,7 @@ def start_once():
     subprocess.Popen(["nm-applet"])
     subprocess.Popen(["nitrogen", "--restore"])
     subprocess.Popen("picom --config ~/.config/picom/picom.conf &", shell=True, executable="/bin/bash")
+    subprocess.Popen(["dunst"])
 
 keys = [
     # Switch between windows
@@ -63,9 +64,13 @@ keys = [
     Key([mod], "p", lazy.spawn("flameshot gui")),
 
     #Set volume
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")),
-    Key([], "XF86AudioMute", lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("/home/shorya/.dotfiles/qtile/volume_control.sh up")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("/home/shorya/.dotfiles/qtile/volume_control.sh down")),
+    Key([], "XF86AudioMute", lazy.spawn("/home/shorya/.dotfiles/qtile/volume_control.sh mute")),
+
+    # Set brightness
+    Key([], "XF86MonBrightnessUp", lazy.spawn("/home/shorya/.dotfiles/qtile/brightness_contorl.sh up")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("/home/shorya/.dotfiles/qtile/brightness_contorl.sh down")),
 
     #Connect wifi
     Key([mod], "m", lazy.spawn("networkmanager_dmenu")),  # if using dmenu version
@@ -186,7 +191,7 @@ screens = [
             ],
             35, #Bar Height
             margin=[10 , 20 , 0 , 20],
-            background="#1e1e2e80",
+            background="#1a161c",
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
