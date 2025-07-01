@@ -15,6 +15,7 @@ def start_once():
     subprocess.Popen(["nitrogen", "--restore"])
     subprocess.Popen("picom --config ~/.config/picom/picom.conf &", shell=True, executable="/bin/bash")
     subprocess.Popen(["dunst"])
+    subprocess.Popen(["xmodmap /home/shorya/.dotfiles/qtile/.Xmodmap"])
 
 keys = [
     # Switch between windows

@@ -38,3 +38,6 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     tmux new-session -s $SESSION_NAME
   fi
 fi
+
+setxkbmap us
+xmodmap /home/shorya/.dotfiles/qtile/.Xmodmap
