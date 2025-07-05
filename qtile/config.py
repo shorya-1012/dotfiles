@@ -7,15 +7,21 @@ from libqtile import hook
 mod = "mod4"
 terminal = guess_terminal()
 
+
 @hook.subscribe.startup_once
 def start_once():
     import subprocess
 
     subprocess.Popen(["nm-applet"])
     subprocess.Popen(["nitrogen", "--restore"])
-    subprocess.Popen("picom --config ~/.config/picom/picom.conf &", shell=True, executable="/bin/bash")
+    subprocess.Popen(
+        "picom --config ~/.config/picom/picom.conf &",
+        shell=True,
+        executable="/bin/bash",
+    )
     subprocess.Popen(["dunst"])
     subprocess.Popen(["xmodmap /home/shorya/.dotfiles/qtile/.Xmodmap"])
+
 
 keys = [
     # Switch between windows
@@ -26,8 +32,15 @@ keys = [
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key(
+        [mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
+    ),
+    Key(
+        [mod, "shift"],
+        "l",
+        lazy.layout.shuffle_right(),
+        desc="Move window to the right",
+    ),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     # Grow windows. If current window is on the edge of screen and direction
@@ -57,23 +70,45 @@ keys = [
         lazy.window.toggle_fullscreen(),
         desc="Toggle fullscreen on the focused window",
     ),
-    Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
+    Key(
+        [mod],
+        "t",
+        lazy.window.toggle_floating(),
+        desc="Toggle floating on the focused window",
+    ),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "a", lazy.spawn("rofi -show drun")),
     Key([mod], "p", lazy.spawn("flameshot gui")),
-
-    #Set volume
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("/home/shorya/.dotfiles/qtile/volume_control.sh up")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("/home/shorya/.dotfiles/qtile/volume_control.sh down")),
-    Key([], "XF86AudioMute", lazy.spawn("/home/shorya/.dotfiles/qtile/volume_control.sh mute")),
-
+    # Set volume
+    Key(
+        [],
+        "XF86AudioRaiseVolume",
+        lazy.spawn("/home/shorya/.dotfiles/qtile/volume_control.sh up"),
+    ),
+    Key(
+        [],
+        "XF86AudioLowerVolume",
+        lazy.spawn("/home/shorya/.dotfiles/qtile/volume_control.sh down"),
+    ),
+    Key(
+        [],
+        "XF86AudioMute",
+        lazy.spawn("/home/shorya/.dotfiles/qtile/volume_control.sh mute"),
+    ),
     # Set brightness
-    Key([], "XF86MonBrightnessUp", lazy.spawn("/home/shorya/.dotfiles/qtile/brightness_contorl.sh up")),
-    Key([], "XF86MonBrightnessDown", lazy.spawn("/home/shorya/.dotfiles/qtile/brightness_contorl.sh down")),
-
-    #Connect wifi
+    Key(
+        [],
+        "XF86MonBrightnessUp",
+        lazy.spawn("/home/shorya/.dotfiles/qtile/brightness_contorl.sh up"),
+    ),
+    Key(
+        [],
+        "XF86MonBrightnessDown",
+        lazy.spawn("/home/shorya/.dotfiles/qtile/brightness_contorl.sh down"),
+    ),
+    # Connect wifi
     Key([mod], "m", lazy.spawn("networkmanager_dmenu")),  # if using dmenu version
 ]
 
@@ -118,11 +153,11 @@ for i in groups:
     )
 
 layout_theme = {
-        "border_width" : 3,
-        "margin" : 12,
-        "border_focus": "#184a99",
-        "border_normal": "#CCCCCC"
-        }
+    "border_width": 3,
+    "margin": 12,
+    "border_focus": "#184a99",
+    "border_normal": "#CCCCCC",
+}
 
 layouts = [
     # layout.Columns(**layout_theme),
@@ -152,20 +187,20 @@ screens = [
         top=bar.Bar(
             [
                 widget.GroupBox(
-                 # background="#1e1e2e",
-                 active="#cdd6f4",
-                 inactive="#6c7086",
-                 highlight_method="block",
-                 this_current_screen_border="#89b4fa",
-                 other_screen_border="#585b70",
-                 margin=3,
+                    # background="#1e1e2e",
+                    active="#cdd6f4",
+                    inactive="#6c7086",
+                    highlight_method="block",
+                    this_current_screen_border="#89b4fa",
+                    other_screen_border="#585b70",
+                    margin=3,
                 ),
                 widget.Spacer(length=12),
                 # widget.Prompt(),
                 widget.WindowName(),
-                widget.Spacer(),  
+                widget.Spacer(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.Spacer(), 
+                widget.Spacer(),
                 widget.Chord(
                     chords_colors={
                         "launch": ("#ff0000", "#ffffff"),
@@ -180,18 +215,28 @@ screens = [
                 #  update_interval=5,
                 # ),
                 widget.Battery(
-                 format='{char} {percent:2.0%}',
-                 font="Noto Color Emoji",  # emoji-supporting font
-                 charge_char='⚡',
-                 discharge_char='\uf241',
-                 empty_char='☠',
-                 full_char='✔',
-                 show_short_text=False,
-                 update_interval=30,
+                    format="{char} {percent:2.0%}",
+                    font="Noto Color Emoji",  # emoji-supporting font
+                    charge_char="⚡",
+                    discharge_char="\uf241",
+                    empty_char="☠",
+                    full_char="✔",
+                    show_short_text=False,
+                    update_interval=30,
+                ),
+                widget.TextBox(
+                    text="⏻",
+                    fontsize=20,
+                    padding=10,
+                    mouse_callbacks={
+                        "Button1": lazy.spawn(
+                            "/home/shorya/.dotfiles/qtile/powermenu.sh"
+                        )
+                    },
                 ),
             ],
-            35, #Bar Height
-            margin=[10 , 20 , 0 , 20],
+            35,  # Bar Height
+            margin=[10, 20, 0, 20],
             background="#1a161c",
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
@@ -205,8 +250,15 @@ screens = [
 
 # Drag floating layouts.
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Drag(
+        [mod],
+        "Button1",
+        lazy.window.set_position_floating(),
+        start=lazy.window.get_position(),
+    ),
+    Drag(
+        [mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()
+    ),
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
