@@ -110,6 +110,10 @@ keys = [
     ),
     # Connect wifi
     Key([mod], "m", lazy.spawn("networkmanager_dmenu")),  # if using dmenu version
+    # power menu
+    Key(
+        [mod, "shift"], "w", lazy.spawn("/home/shorya/.dotfiles/qtile/powermenu.sh")
+    ),  # if using dmenu version
 ]
 
 # Add key bindings to switch VTs in Wayland.
