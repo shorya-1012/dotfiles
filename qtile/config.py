@@ -158,10 +158,8 @@ for i in groups:
     )
 
 layout_theme = {
-    "border_width": 3,
+    "border_width": 0,
     "margin": 20,
-    "border_focus": "#184a99",
-    "border_normal": "#CCCCCC",
 }
 
 layouts = [
@@ -207,7 +205,7 @@ def get_media_title_and_bar():
         filled = int(percent * bar_length)
         empty = bar_length - filled
 
-        bar = "▮" * filled + "▯" * empty
+        bar = "■" * filled + "▯" * empty
 
         return f"{title}\n{bar}"
 

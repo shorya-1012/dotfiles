@@ -5,8 +5,8 @@ TERM = "xterm-256color"
 blinking = "on"
 shape = "Beam"
 [window]
-padding.x = 30
-padding.y = 30
+padding.x = 20
+padding.y = 20
 decorations = "full"
 dynamic_title = true
 
@@ -20,7 +20,6 @@ size=13
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
-
 [window.dimensions]
 columns = 60
 lines = 20

@@ -1,5 +1,5 @@
 * {
-    font: "Figtree 13";
+    font: "JetBrainsMono Nerd Font 13";
     g-spacing: 10px;
     g-margin: 0;
     b-color: #000000FF;
@@ -11,7 +11,7 @@
     hlt-color: #000000FF;
     alt-color: #111111FF;
     wbg-color: #000000CC;
-    w-border: 2px solid;
+    w-border: 0px solid;
     w-border-color: #FFFFFFFF;
     w-padding: 12px;
 }
