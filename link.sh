@@ -9,6 +9,7 @@ configs=(
   "fastfetch"
   "rofi"
   "cava"
+  "alacritty"
 )
 
 #remove previous

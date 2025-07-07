@@ -3,6 +3,7 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from libqtile import hook
+import subprocess
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -47,7 +48,7 @@ keys = [
     # will be to screen edge - window would shrink.
     Key([mod, "control"], "h", lazy.layout.shrink(), desc="Grow window to the left"),
     Key([mod, "control"], "l", lazy.layout.grow(), desc="Grow window to the right"),
-    # Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
+    # Key([mod, "control"], 2j", lazy.layout.grow_down(), desc="Grow window down"),
     # Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     # Toggle between split and unsplit sides of stack.
@@ -158,7 +159,7 @@ for i in groups:
 
 layout_theme = {
     "border_width": 3,
-    "margin": 12,
+    "margin": 20,
     "border_focus": "#184a99",
     "border_normal": "#CCCCCC",
 }
@@ -186,48 +187,77 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+
+# helper func for statusbar
+def get_media_title_and_bar():
+    title = subprocess.getoutput("playerctl metadata --format '{{title}}'")
+    if title == "No players found":
+        return ""
+
+    try:
+        position = float(subprocess.getoutput("playerctl position"))
+        length_str = subprocess.getoutput("playerctl metadata mpris:length")
+        length = int(length_str) / 1_000_000 if length_str.isdigit() else 0
+
+        if length == 0:
+            return title
+
+        percent = position / length
+        bar_length = 20
+        filled = int(percent * bar_length)
+        empty = bar_length - filled
+
+        bar = "▮" * filled + "▯" * empty
+
+        return f"{title}\n{bar}"
+
+    except:
+        return title
+
+
 screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.TextBox(
+                    text="",  # Arch Linux logo (Nerd Font)
+                    font="JetBrainsMono Nerd Font",  # Must support Nerd Font glyphs
+                    fontsize=18,
+                    padding=20,
+                ),
                 widget.GroupBox(
-                    # background="#1e1e2e",
                     active="#cdd6f4",
+                    fontsize=20,
                     inactive="#6c7086",
                     highlight_method="block",
                     this_current_screen_border="#89b4fa",
                     other_screen_border="#585b70",
-                    margin=3,
+                    padding=5,
+                    visible_groups=["1", "2", "3", "4", "5"],
                 ),
                 widget.Spacer(length=12),
-                # widget.Prompt(),
-                widget.WindowName(),
                 widget.Spacer(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.Spacer(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
+                widget.GenPollText(
+                    update_interval=2,
+                    fontsize=15,
+                    foreground="#ffffff",
+                    func=get_media_title_and_bar,
                 ),
+                widget.Spacer(),
                 widget.Systray(),
-                # widget.Wlan(
-                #     interface="wlo1",
-                #     format='{essid} {percent:2.0%}',
-                #  disconnected_message='Disconnected',
-                #  update_interval=5,
-                # ),
                 widget.Battery(
                     format="{char} {percent:2.0%}",
-                    font="Noto Color Emoji",  # emoji-supporting font
+                    # font="Noto Color Emoji",  # emoji-supporting font
+                    fontsize=18,
                     charge_char="⚡",
-                    discharge_char="\uf241",
+                    discharge_char="",
                     empty_char="☠",
                     full_char="✔",
                     show_short_text=False,
                     update_interval=30,
+                    # padding=10,
                 ),
+                widget.Clock(format="%a %H:%M", fontsize=18, padding=12),
                 widget.TextBox(
                     text="⏻",
                     fontsize=20,
@@ -238,8 +268,9 @@ screens = [
                         )
                     },
                 ),
+                widget.Spacer(10),
             ],
-            35,  # Bar Height
+            50,  # Bar Height
             margin=[10, 20, 0, 20],
             background="#1a161c",
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
