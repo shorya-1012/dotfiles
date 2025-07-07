@@ -25,7 +25,7 @@
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = 300
+    width = 600
 
     # The height of a single notification, excluding the frame.
     # dynamic height from 0 to 300
@@ -66,7 +66,7 @@
     progress_bar_min_width = 150
 
     # Set the maximum width for the progress bar
-    progress_bar_max_width = 300
+    progress_bar_max_width = 900
 
     # Corner radius for the progress bar. 0 disables rounded corners.
     progress_bar_corner_radius = 0
