@@ -19,11 +19,11 @@ option_as_alt = "Both"
 size=13
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "JetBrainsMono Nerd Font Mono"
+
 [window.dimensions]
 columns = 60
 lines = 20
 
 [colors.primary]
 background = "0x000000"  # black base tint
-

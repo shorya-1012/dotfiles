@@ -80,40 +80,42 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-    Key([mod], "a", lazy.spawn("rofi -show drun")),
+    Key([mod], "a", lazy.spawn("/home/shorya/.config/rofi/launchers/launcher.sh")),
     Key([mod], "p", lazy.spawn("flameshot gui")),
     # Set volume
     Key(
         [],
         "XF86AudioRaiseVolume",
-        lazy.spawn("/home/shorya/.dotfiles/qtile/volume_control.sh up"),
+        lazy.spawn("/home/shorya/.dotfiles/qtile/scripts/volume_control.sh up"),
     ),
     Key(
         [],
         "XF86AudioLowerVolume",
-        lazy.spawn("/home/shorya/.dotfiles/qtile/volume_control.sh down"),
+        lazy.spawn("/home/shorya/.dotfiles/qtile/scripts/volume_control.sh down"),
     ),
     Key(
         [],
         "XF86AudioMute",
-        lazy.spawn("/home/shorya/.dotfiles/qtile/volume_control.sh mute"),
+        lazy.spawn("/home/shorya/.dotfiles/qtile/scripts/volume_control.sh mute"),
     ),
     # Set brightness
     Key(
         [],
         "XF86MonBrightnessUp",
-        lazy.spawn("/home/shorya/.dotfiles/qtile/brightness_contorl.sh up"),
+        lazy.spawn("/home/shorya/.dotfiles/qtile/scripts/brightness_contorl.sh up"),
     ),
     Key(
         [],
         "XF86MonBrightnessDown",
-        lazy.spawn("/home/shorya/.dotfiles/qtile/brightness_contorl.sh down"),
+        lazy.spawn("/home/shorya/.dotfiles/qtile/scripts/brightness_contorl.sh down"),
     ),
     # Connect wifi
     Key([mod], "m", lazy.spawn("networkmanager_dmenu")),  # if using dmenu version
     # power menu
     Key(
-        [mod, "shift"], "w", lazy.spawn("/home/shorya/.dotfiles/qtile/powermenu.sh")
+        [mod, "shift"],
+        "w",
+        lazy.spawn("/home/shorya/.config/rofi/powermenu/launcher.sh"),
     ),  # if using dmenu version
 ]
 
@@ -262,7 +264,7 @@ screens = [
                     padding=10,
                     mouse_callbacks={
                         "Button1": lazy.spawn(
-                            "/home/shorya/.dotfiles/qtile/powermenu.sh"
+                            "/home/shorya/.config/rofi/powermenu/launcher.sh"
                         )
                     },
                 ),
