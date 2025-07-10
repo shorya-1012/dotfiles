@@ -116,6 +116,12 @@ keys = [
         [mod, "shift"],
         "w",
         lazy.spawn("/home/shorya/.config/rofi/powermenu/launcher.sh"),
+    ),
+    # wallpaper selector
+    Key(
+        [mod],
+        "w",
+        lazy.spawn("/home/shorya/.config/rofi/wallpaper/launcher.sh"),
     ),  # if using dmenu version
 ]
 
@@ -192,6 +198,8 @@ extension_defaults = widget_defaults.copy()
 def get_media_title_and_bar():
     title = subprocess.getoutput("playerctl metadata --format '{{title}}'")
     if title == "No players found":
+        return ""
+    if title == "No player could handle this command":
         return ""
 
     try:
