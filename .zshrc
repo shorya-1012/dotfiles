@@ -41,3 +41,8 @@ fi
 
 setxkbmap us
 xmodmap /home/shorya/.dotfiles/qtile/.Xmodmap
+xset r rate 200 32 &
+clear
+
+# Created by `pipx` on 2025-07-15 10:45:48
+export PATH="$PATH:/home/shorya/.local/bin"

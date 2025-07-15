@@ -19,7 +19,7 @@ option_as_alt = "Both"
 size=13
 
 [font.normal]
-family = "JetBrainsMono Nerd Font Mono"
+family = "JetBrains Mono"
 
 [window.dimensions]
 columns = 60

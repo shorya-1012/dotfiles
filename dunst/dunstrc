@@ -332,7 +332,7 @@
     appname = "Volume"
     format = "<b>%s</b>\n%b"
     timeout= 1000
-    background = "#222222"
+    background = "#1a161c"
     foreground = "#ffffff"
     frame_color = "#888888"
 

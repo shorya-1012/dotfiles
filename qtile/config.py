@@ -110,14 +110,20 @@ keys = [
         lazy.spawn("/home/shorya/.dotfiles/qtile/scripts/brightness_contorl.sh down"),
     ),
     # Connect wifi
-    Key([mod], "m", lazy.spawn("networkmanager_dmenu")),  # if using dmenu version
+    Key([mod], "m", lazy.spawn("networkmanager_dmenu")),
     # power menu
     Key(
         [mod, "shift"],
-        "w",
+        "q",
         lazy.spawn("/home/shorya/.config/rofi/powermenu/launcher.sh"),
     ),
     # wallpaper selector
+    Key(
+        [mod],
+        "w",
+        lazy.spawn("/home/shorya/.config/rofi/wallpaper/launcher.sh"),
+    ),
+    # live
     Key(
         [mod],
         "w",
@@ -217,7 +223,7 @@ def get_media_title_and_bar():
 
         bar = "■" * filled + "▯" * empty
 
-        return f"{title}\n{bar}"
+        return f"🎵 {title}"
 
     except:
         return title
@@ -265,7 +271,11 @@ screens = [
                     update_interval=30,
                     # padding=10,
                 ),
-                widget.Clock(format="%a %H:%M", fontsize=18, padding=12),
+                widget.Clock(
+                    format="%a %H:%M",
+                    fontsize=18,
+                    padding=12,
+                ),
                 widget.TextBox(
                     text="⏻",
                     fontsize=20,
@@ -279,8 +289,9 @@ screens = [
                 widget.Spacer(10),
             ],
             50,  # Bar Height
-            margin=[10, 20, 0, 20],
             background="#1a161c",
+            margin=[10, 20, 0, 20],
+            # background="#1a161c0",
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
