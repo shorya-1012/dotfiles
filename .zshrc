@@ -27,7 +27,7 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Auto-attach to tmux session on shell startup
+Auto-attach to tmux session on shell startup
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
   SESSION_NAME="main"
   tmux has-session -t $SESSION_NAME 2>/dev/null
