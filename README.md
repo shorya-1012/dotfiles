@@ -3,9 +3,10 @@
 This repository contains the dotfiles I use in my Arch Linux setup with Qtiles:
 
 <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-  <img src="https://8l8d0r1afw.ufs.sh/f/3Wlnw3xwUljvOgQ08BF93Ht4Kg5QZUJio1fFzm8klCRAN0wP" alt="Image 1" style="width: 100%; " />
-  <img src="https://8l8d0r1afw.ufs.sh/f/3Wlnw3xwUljvxd7mGdZFEi9rdLSlTVZ5Xo2Ijca1KUWgf7DA" alt="Image 1" style="width: 100%; " />
-  <img src="https://8l8d0r1afw.ufs.sh/f/3Wlnw3xwUljvmhNemPICjkRDucQNGbJBXtaHhnYirgzvS4VO" alt="Image 1" style="width: 100%; " />
+  <img src="https://8l8d0r1afw.ufs.sh/f/3Wlnw3xwUljvXMIaeMbwQgeGPVR9p8wNMaDUFrE5oJby2zZf" alt="Image 1" style="width: 100%; " />
+  <img src="https://8l8d0r1afw.ufs.sh/f/3Wlnw3xwUljv8Z1x71U3oDA4rhcZOlPbp9n32SN0KEmfkUXs" alt="Image 1" style="width: 100%; " />
+  <img src="https://8l8d0r1afw.ufs.sh/f/3Wlnw3xwUljvmoRlzXICjkRDucQNGbJBXtaHhnYirgzvS4VO" alt="Image 1" style="width: 100%; " />
+    <img src="https://8l8d0r1afw.ufs.sh/f/3Wlnw3xwUljv8kEYTJ3oDA4rhcZOlPbp9n32SN0KEmfkUXsF" alt="Image 1" style="width: 100%; " />
 </div>
 
 
