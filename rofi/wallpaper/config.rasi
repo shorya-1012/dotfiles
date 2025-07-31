@@ -1,97 +1,185 @@
+/*****----- Configuration -----*****/
+configuration {
+    modi:                       "drun";
+    show-icons:                 true;
+    display-drun:               " Apps";
+    drun-display-format:        "{name}";
+}
+
+/*****----- Global Properties -----*****/
 * {
-    font:   "Montserrat 12";
-
-    bg0:    #242424E6;
-    bg1:    #7E7E7E80;
-    bg2:    #0860f2E6;
-
-    fg0:    #DEDEDE;
-    fg1:    #FFFFFF;
-    fg2:    #DEDEDE80;
-
-    background-color:   transparent;
-    text-color:         @fg0;
-
-    margin:     0;
-    padding:    0;
-    spacing:    0;
+    background:     #00000080;     // 50% transparent
+    background-alt: #10101080;
+    foreground:     #FFFFFFFF;
+    selected:       #62AEEF80;
+    active:         #98C37980;
+    urgent:         #E06B7480;
+    font: "JetBrains Mono 14";
 }
 
+/*****----- Main Window -----*****/
 window {
-    background-color:   @bg0;
-
-    location:       center;
-    width:          640;
-    border-radius:  8;
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       100%;
+    x-offset:                    0px;
+    y-offset:                    0px;
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                @selected;
+    background-color:            transparent;
+    cursor:                      "default";
 }
 
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     20px;
+    margin:                      0px;
+    padding:                     50px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                @selected;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ];
+}
+
+/*****----- Inputbar -----*****/
 inputbar {
-    font:       "Montserrat 12";
-    padding:    12px;
-    spacing:    12px;
-    children:   [ icon-search, entry ];
+    enabled:                     true;
+    spacing:                     20px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px;
+    border-radius:               0px;
+    border-color:                @selected;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    children:                    [ "prompt", "entry" ];
 }
 
-icon-search {
-    expand:     false;
-    filename:   "search";
-    size: 28px;
+prompt {
+    enabled:                     true;
+    padding:                     15px;
+    border-radius:               15px;
+    background-color:            @selected;
+    text-color:                  @background;
 }
 
-icon-search, entry, element-icon, element-text {
-    vertical-align: 0.5;
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    str:                         "::";
+    background-color:            inherit;
+    text-color:                  inherit;
 }
 
 entry {
-    font:   inherit;
-
-    placeholder         : "Search";
-    placeholder-color   : @fg2;
+    enabled:                     true;
+    expand:                      false;
+    width:                       400px;
+    padding:                     15px 20px;
+    border-radius:               15px;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+    cursor:                      text;
+    placeholder:                 "Search...";
+    placeholder-color:           inherit;
 }
 
-message {
-    border:             2px 0 0;
-    border-color:       @bg1;
-    background-color:   @bg1;
-}
-
-textbox {
-    padding:    8px 24px;
-}
-
+/*****----- Listview -----*****/
 listview {
-    lines:      10;
-    columns:    1;
+    enabled:                     true;
+    columns:                     2;
+    lines:                       2;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
 
-    fixed-height:   false;
-    border:         1px 0 0;
-    border-color:   @bg1;
+    spacing:                     0px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                @selected;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      "default";
 }
 
+scrollbar {
+    handle-width:                5px ;
+    handle-color:                @selected;
+    border-radius:               0px;
+    background-color:            @background-alt;
+}
+
+/*****----- Elements -----*****/
 element {
-    padding:            8px 16px;
-    spacing:            16px;
-    background-color:   transparent;
+    enabled:                     true;
+    spacing:                     20px;
+    margin:                      0px;
+    padding:                     30px 10px;
+    border:                      0px solid;
+    border-radius:               20px;
+    border-color:                @selected;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    orientation:                 vertical;
+    cursor:                      pointer;
 }
 
-element normal active {
-    text-color: @bg2;
+element normal.normal {
+    background-color:            transparent;
+    text-color:                  @foreground;
 }
 
-element alternate active {
-    text-color: @bg2;
-}
-
-element selected normal, element selected active {
-    background-color:   @bg2;
-    text-color:         @fg1;
+element selected.normal {
+    background-color:            @background-alt;
+    text-color:                  @foreground;
 }
 
 element-icon {
-    size:   1em;
+    padding:                     0px 0px 0px 0px;
+    background-color:            transparent;
+    text-color:                  inherit;
+    size:                        390px;
+    cursor:                      inherit;
 }
 
 element-text {
-    text-color: inherit;
+    background-color:            transparent;
+    text-color:                  inherit;
+    highlight:                   inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+/*****----- Message -----*****/
+error-message {
+    padding:                     50px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                @selected;
+    background-color:            transparent;
+    text-color:                  @foreground;
+}
+
+textbox {
+    background-color:            transparent;
+    text-color:                  @foreground;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+    highlight:                   none;
 }
 
