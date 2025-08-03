@@ -28,3 +28,11 @@ vim.keymap.set('v', 'y', '"+y')
 
 vim.keymap.set("n", "<leader>oc", "O{/*")
 vim.keymap.set("n", "<leader>op", "o*/}")
+
+vim.keymap.set("n", "<leader>jf", function()
+  vim.cmd("%!jq '.'")
+end)
+
+vim.keymap.set("n", "<leader>bb", function()
+  vim.cmd("e #")
+end)
