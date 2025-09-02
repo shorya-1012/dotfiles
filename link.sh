@@ -10,6 +10,7 @@ configs=(
   # "rofi"
   "cava"
   "alacritty"
+  "yazi"
   # "dunst"
 )
 

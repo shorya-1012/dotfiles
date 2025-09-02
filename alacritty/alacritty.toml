@@ -10,7 +10,7 @@ padding.y = 20
 decorations = "full"
 dynamic_title = true
 
-opacity = 0.85
+opacity = 0.80
 blur = false
 
 option_as_alt = "Both"
