@@ -1,3 +1,5 @@
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 #Disable instant prompt
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
@@ -26,28 +28,6 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Auto-attach to tmux session on shell startup
-# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-#   SESSION_NAME="main"
-#   tmux has-session -t $SESSION_NAME 2>/dev/null
-#
-#   if [ $? -eq 0 ]; then
-#     tmux attach-session -t $SESSION_NAME
-#   else
-#     tmux new-session -s $SESSION_NAME
-#   fi
-# fi
-
-setxkbmap us 
-xmodmap /home/shorya/.dotfiles/qtile/.Xmodmap 
-xset r rate 200 32 
-clear
-
-# setxkbmap us
-# xmodmap /home/shorya/.dotfiles/qtile/.Xmodmap
-# xset r rate 200 32 &
-# clear
 
 # Created by `pipx` on 2025-07-15 10:45:48
 export PATH="$PATH:/home/shorya/.local/bin"

@@ -10,16 +10,17 @@ padding.y = 20
 decorations = "full"
 dynamic_title = true
 
-opacity = 0.8
-blur = true
+opacity = 0.85
+blur = false
 
 option_as_alt = "Both"
 
 [font]
-size=13
+size=20
 
 [font.normal]
-family = "JetBrains Mono"
+# family = "JetBrains Mono"
+family = "JetBrainsMono Nerd Font"
 
 [window.dimensions]
 columns = 60
