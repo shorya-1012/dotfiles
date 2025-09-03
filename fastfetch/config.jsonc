@@ -1,15 +1,7 @@
-    //   _____ _____ _____ _____ _____ _____ _____ _____ _____ 
-//  |   __|  _  |   __|_   _|   __|   __|_   _|     |  |  |
-//  |   __|     |__   | | | |   __|   __| | | |   --|     |
-//  |__|  |__|__|_____| |_| |__|  |_____| |_| |_____|__|__|  MINIMAL
-//
-//  by Bina
-
-
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
     "logo": {
-    	"source": "~/.config/fastfetch/images/vivian2.png",
+    	"source": "~/.config/fastfetch/images/frieren.png",
     	"type": "kitty",
     	"height": 6,
     	"padding": {

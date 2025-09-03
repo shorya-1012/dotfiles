@@ -35,6 +35,7 @@ export PATH="$PATH:/home/shorya/.local/bin"
 alias py='python3'
 alias at='tmux attach-session -t main'
 alias run='~/.dotfiles/scripts/run.sh'
+alias fastfetch='~/.dotfiles/fastfetch/launch.sh'
 
 # bun completions
 [ -s "/home/shorya/.bun/_bun" ] && source "/home/shorya/.bun/_bun"
