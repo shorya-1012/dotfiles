@@ -34,7 +34,7 @@ export PATH="$PATH:/home/shorya/.local/bin"
 
 alias py='python3'
 alias at='tmux attach-session -t main'
-alias sres='~/.config/qtile/scripts/switch_res.sh'
+alias run='~/.dotfiles/scripts/run.sh'
 
 # bun completions
 [ -s "/home/shorya/.bun/_bun" ] && source "/home/shorya/.bun/_bun"
