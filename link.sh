@@ -3,15 +3,11 @@
 configs=(
   "tmux"
   "nvim"
-  # "qtile"
   "kitty"
-  # "picom"
   "fastfetch"
-  # "rofi"
   "cava"
   "alacritty"
   "yazi"
-  # "dunst"
 )
 
 #remove previous
