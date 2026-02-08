@@ -3,6 +3,12 @@ export LC_ALL=en_US.UTF-8
 #Disable instant prompt
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
+# Faster ESC from insert mode
+KEYTIMEOUT=1
+# Show mode in prompt (optional)
+bindkey -v
+export VI_MODE_SET_CURSOR=true
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
