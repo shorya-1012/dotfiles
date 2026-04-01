@@ -14,7 +14,7 @@ window_border_width 1
 window_decorations full
 
 # Background 
-background_opacity 0.85
+background_opacity 0.80
 dynamic_background_opacity yes
 
 # Fonts
@@ -25,7 +25,13 @@ font_size 20.0
 initial_window_width  120c
 initial_window_height 35c
 
+# Colors
+# foreground #d0d0d0
+# background #000000
+
+
+
 # BEGIN_KITTY_THEME
-# Gruvbox Dark Hard
+# Gruvbox Material Dark Hard
 include current-theme.conf
 # END_KITTY_THEME
