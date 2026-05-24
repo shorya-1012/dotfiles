@@ -10,13 +10,14 @@ This repository contains the dotfiles I use to setup my Terminal workflow on my 
 
 ## Dotfiles Included
 
+- **Niri**: Scrollable Tiling Window Manager.
+- **Noctalia Shell**: Desktop Shell.
+- **Tofi**: Laucher.
+- **Fastfetch**: System information display setup.
 - **Neovim**: Code\Text Editor.
 - **Tmux**: Session and Window manager in Terminal.
 - **Kitty**: Primary Terminal Emulator.
-- **Alacritty**: Terminal emulator.
 - **Cava**: Audio visualizer.
-- **Fastfetch**: System information display setup.
-- **Yazi**: Terminal file manager
 - **ZSH**: Shell
 
 ## ⚠️ Link.sh script
