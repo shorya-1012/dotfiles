@@ -7,9 +7,9 @@ Check branches to find configs for
 - **KDE**
 
 <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-  <img src="screenshots/ss1.png" alt="Image 1" style="width: 100%; " />
-  <img src="screenshots/ss2.png" alt="Image 1" style="width: 100%; " />
-  <img src="screenshots/ss3.png" alt="Image 1" style="width: 100%; " />
+  <img src="screenshots/screenshot1.png" alt="Image 1" style="width: 100%; " />
+  <img src="screenshots/screenshot2.png" alt="Image 1" style="width: 100%; " />
+  <img src="screenshots/screenshot3.png" alt="Image 1" style="width: 100%; " />
 </div>
 
 ## Dotfiles Included
