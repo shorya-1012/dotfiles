@@ -1,6 +1,10 @@
 # My Dotfiles
 
-This repository contains the dotfiles I use to setup my Terminal workflow on my Linux system
+This repository contains the dotfiles for setting up Niri and my terminal workflow.
+
+Check branches to find configs for 
+- **Qtile**
+- **KDE**
 
 <div style="display: flex; flex-wrap: wrap; justify-content: center;">
   <img src="screenshots/ss1.png" alt="Image 1" style="width: 100%; " />
