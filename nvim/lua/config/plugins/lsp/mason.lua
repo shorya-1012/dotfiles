@@ -26,8 +26,6 @@ return {
       ensure_installed = {
         "rust_analyzer",
         "clangd",
-        "html",
-        "cssls",
         "tailwindcss",
         "lua_ls",
         "pyright",

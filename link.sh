@@ -1,13 +1,14 @@
 #!/bin/bash
 
 configs=(
+  "niri"
+  "noctalia"
   "tmux"
   "nvim"
   "kitty"
   "fastfetch"
   "cava"
-  "alacritty"
-  "yazi"
+  "tofi"
 )
 
 #remove previous

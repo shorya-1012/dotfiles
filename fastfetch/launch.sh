@@ -1,1 +1,1 @@
-fastfetch --logo "$HOME/.dotfiles/fastfetch/images/aigis.png" --logo-type kitty
+fastfetch --logo "$HOME/.config/fastfetch/images/reze.jpeg" --logo-type kitty
