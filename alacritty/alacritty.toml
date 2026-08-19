@@ -1,0 +1,85 @@
+# Terminal type
+[env]
+TERM = "xterm-256color"
+
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+blink_interval = 500
+
+
+[window]
+
+# Kitty: window_padding_width 20
+padding = { x = 20, y = 20 }
+
+# Kitty: window_margin_width 0
+# Alacritty doesn't have a direct equivalent.
+
+# Kitty: window_border_width 1
+# Niri/compositor normally controls the outer window border.
+
+# Kitty: background_opacity 0.82
+opacity = 0.82
+
+[font]
+
+size = 20.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
+
+
+# ─────────────────────────────────────────────
+# Dimensions
+# ─────────────────────────────────────────────
+
+[window.dimensions]
+
+# Kitty: initial_window_width 120c
+columns = 120
+
+# Kitty: initial_window_height 35c
+lines = 35
+
+
+# ─────────────────────────────────────────────
+# Alabaster Dark
+# ─────────────────────────────────────────────
+
+[colors.primary]
+background = "#0E0E0E"
+foreground = "#CECECE"
+
+[colors.cursor]
+text = "#0E0E0E"
+cursor = "#CECECE"
+
+[colors.normal]
+black   = "#0E0E0E"
+red     = "#D73737"
+green   = "#60A917"
+yellow  = "#FAE62D"
+blue    = "#0087FF"
+magenta = "#AF5FFF"
+cyan    = "#00D8EB"
+white   = "#CECECE"
+
+[colors.bright]
+black   = "#777777"
+red     = "#FF0000"
+green   = "#6BCB00"
+yellow  = "#FFFF00"
+blue    = "#00AFFF"
+magenta = "#AF87FF"
+cyan    = "#00FFFF"
+white   = "#FFFFFF"

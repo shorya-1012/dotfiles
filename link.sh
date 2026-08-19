@@ -7,6 +7,7 @@ configs=(
   "nvim"
   "kitty"
   "fastfetch"
+  "alacritty"
   "cava"
   "tofi"
 )

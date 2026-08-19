@@ -240,7 +240,9 @@ layout {
     }
 }
 
-spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/"
+spawn-sh-at-startup "noctalia"
+spawn-sh-at-startup "/home/raiden/.config/niri/scripts/start-audio.sh"
+spawn-sh-at-startup "kanshi"
 
 hotkey-overlay {
     skip-at-startup
@@ -320,7 +322,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     // Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "tofi-drun" "--drun-launch=true"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }

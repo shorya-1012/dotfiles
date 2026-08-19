@@ -1,0 +1,268 @@
+# ----------------------------------------------------------------------------
+# Shell (global) — from general.*, appLauncher.*
+# ----------------------------------------------------------------------------
+[shell]
+corner_radius_scale     = 1.0                       # general.boxRadiusRatio/iRadiusRatio/radiusRatio/screenRadiusRatio (all 1)
+font_family             = "JetBrains Mono"
+lang                    = ""                         # general.language
+telemetry_enabled       = false                      # general.telemetryEnabled
+avatar_path             = "/home/shorya/Downloads/icon.jpeg"  # general.avatarImage
+screen_time_enabled     = false
+clipboard_enabled       = true                       # appLauncher.enableClipboardHistory was false in your JSON —
+                                                       # set to false below if you want that preserved:
+# clipboard_enabled     = false                       # <- uncomment to match v4 (enableClipboardHistory: false)
+clipboard_auto_paste    = "off"                       # appLauncher.autoPasteClipboard was false
+
+[shell.animation]
+enabled = true                                        # general.animationDisabled: false
+speed   = 1.0                                         # general.animationSpeed
+
+[shell.shadow]
+direction = "down_right"                              # general.shadowDirection: "bottom_right"
+
+[shell.panel]
+transparency_mode = "solid"                           # general.enableBlurBehind: false
+open_near_click_control_center = true                 # bar.rightClickFollowMouse: true
+
+[shell.launcher]
+categories    = true                                  # appLauncher.showCategories
+sort_by_usage = true                                  # appLauncher.sortByMostUsed
+compact       = false                                 # appLauncher.density: "default"
+app_grid      = false                                 # appLauncher.viewMode: "list"
+pinned        = []                                    # appLauncher.pinnedApps: []
+
+[shell.screen_corners]
+enabled = false                                        # general.showScreenCorners / forceBlackScreenCorners: false
+
+
+# ----------------------------------------------------------------------------
+# Accessibility — from general.scaleRatio
+# ----------------------------------------------------------------------------
+[accessibility]
+ui_scale = 1.0
+
+[keybinds]
+validate     = ["return", "kp_enter"]
+cancel       = ["escape"]
+left         = ["left"]
+right        = ["right"]
+up           = ["up"]
+down         = ["down"]
+delete       = ["del"]
+
+
+# ----------------------------------------------------------------------------
+# Lock screen — from general.lock*/showHibernateOnLockScreen/etc
+# ----------------------------------------------------------------------------
+[lockscreen]
+enabled              = true
+lock_before_suspend  = true                            # general.lockOnSuspend
+blurred_desktop      = false                            # general.lockScreenBlur: 0
+blur_intensity        = 0.0
+tint_intensity         = 0.0                            # general.lockScreenTint: 0
+monitors              = []                              # general.lockScreenMonitors: []
+
+
+# ----------------------------------------------------------------------------
+# Session panel (power menu) — from sessionMenu.*
+# ----------------------------------------------------------------------------
+[shell.session]
+grid            = false                                # largeButtonsLayout: "single-row"
+show_shortcuts  = true                                  # showKeybinds: true
+
+[[shell.session.actions]]
+action    = "lock"
+shortcut  = "1"
+
+[[shell.session.actions]]
+action    = "suspend"
+shortcut  = "2"
+countdown_seconds = 10                                  # enableCountdown was true, countdownDuration 10000ms
+
+[[shell.session.actions]]
+action    = "command"
+label     = "Hibernate"
+glyph     = "bedtime"
+command   = "systemctl hibernate"                       # v5 has no native "hibernate" action
+shortcut  = "3"
+countdown_seconds = 10
+
+[[shell.session.actions]]
+action    = "reboot"
+shortcut  = "4"
+countdown_seconds = 10
+
+[[shell.session.actions]]
+action    = "logout"
+shortcut  = "5"
+countdown_seconds = 10
+
+[[shell.session.actions]]
+action    = "shutdown"
+variant   = "destructive"
+shortcut  = "6"
+countdown_seconds = 10
+
+# rebootToUefi (enabled in v4) has no built-in v5 action; add as a custom command if you want it back:
+[[shell.session.actions]]
+action    = "command"
+label     = "Reboot to UEFI"
+command   = "systemctl reboot --firmware-setup"
+shortcut  = "7"
+
+
+# ----------------------------------------------------------------------------
+# OSD — from notifications.enableBatteryToast / enableKeyboardLayoutToast / enableMediaToast
+# ----------------------------------------------------------------------------
+[osd.kinds]
+media            = false                                 # notifications.enableMediaToast: false
+keyboard_layout  = true                                   # notifications.enableKeyboardLayoutToast: true
+# battery has no dedicated OSD kind in v5 (battery warnings are handled by [battery] below)
+
+
+# ----------------------------------------------------------------------------
+# Notifications — from notifications.*
+# ----------------------------------------------------------------------------
+[notification]
+enable_daemon      = true                                # notifications.enabled
+position           = "top_right"                          # notifications.location
+layer              = "overlay"                            # notifications.overlayLayer: true
+background_opacity = 1.0                                  # notifications.backgroundOpacity
+monitors           = []                                   # notifications.monitors: []
+
+# notifications.sounds.enabled was false — v5 has no single global sound
+# toggle, so replicate it with a catch-all filter that mutes sound but
+# keeps toasts/history exactly as before:
+[notification.filter.no_sound]
+enabled       = true
+match_content = ".*"
+show_toast    = true
+save_history  = true
+play_sound    = false
+
+
+# ----------------------------------------------------------------------------
+# Idle — from idle.* (master switch was off, so everything stays disabled)
+# ----------------------------------------------------------------------------
+[idle]
+pre_action_fade_seconds = 5.0                             # idle.fadeDuration
+
+[idle.behavior.lock]
+timeout = 660                                              # idle.lockTimeout
+action  = "lock"
+enabled = false                                             # idle.enabled: false
+
+[idle.behavior.screen-off]
+timeout = 600                                               # idle.screenOffTimeout
+action  = "screen_off"
+enabled = false
+
+[idle.behavior.suspend]
+timeout = 1800                                               # idle.suspendTimeout
+action  = "lock_and_suspend"
+enabled = false
+
+
+[location]
+auto_locate = false                                          # location.autoLocate
+address     = "Shimla"                                       # location.name
+[nightlight]
+enabled           = false                                    # nightLight.enabled
+force             = false                                    # nightLight.forced
+temperature_day   = 6500                                     # nightLight.dayTemp
+temperature_night = 4000                                     # nightLight.nightTemp
+
+[weather]
+enabled = true                                                # location.weatherEnabled
+
+[theme]
+mode              = "dark"                                    # colorSchemes.darkMode: true
+source            = "wallpaper"                                # colorSchemes.useWallpaperColors: true
+builtin           = "Noctalia"                                 # colorSchemes.predefinedScheme fallback
+wallpaper_scheme  = "m3-tonal-spot"                             # colorSchemes.generationMethod: "tonal-spot"
+
+
+[wallpaper]
+enabled                 = true
+fill_mode               = "crop"                                # wallpaper.fillMode
+fill_color              = "#000000"                              # wallpaper.fillColor
+directory               = "~/wallpapers"
+transition              = ["fade", "disc", "stripes", "wipe", "pixelate", "honeycomb"]
+transition_duration     = 1500
+edge_smoothness         = 0.05                                    # wallpaper.transitionEdgeSmoothness
+transition_on_startup   = false                                   # wallpaper.skipStartupTransition: true
+per_monitor_directories = false                                   # wallpaper.enableMultiMonitorDirectories: false
+
+[wallpaper.automation]
+enabled           = false                                          # wallpaper.automationEnabled
+interval_seconds  = 300                                             # wallpaper.randomIntervalSec
+order             = "random"                                        # wallpaper.wallpaperChangeMode
+
+
+[brightness]
+enable_ddcutil     = false                                           # brightness.enableDdcSupport
+minimum_brightness = 0.01                                             # brightness.enforceMinimum: true (approximate floor)
+
+[battery]
+warning_threshold = 20
+
+[system.monitor]
+enabled = true
+
+cpu_usage_activity_threshold  = 80                                       # systemMonitor.cpuWarningThreshold
+cpu_usage_critical_threshold  = 90                                       # systemMonitor.cpuCriticalThreshold
+cpu_temp_activity_threshold   = 80                                       # systemMonitor.tempWarningThreshold
+cpu_temp_critical_threshold   = 90                                       # systemMonitor.tempCriticalThreshold
+gpu_usage_activity_threshold  = 80                                       # systemMonitor.gpuWarningThreshold
+gpu_usage_critical_threshold  = 90                                       # systemMonitor.gpuCriticalThreshold
+ram_pct_activity_threshold    = 80                                       # systemMonitor.memWarningThreshold
+ram_pct_critical_threshold    = 90                                       # systemMonitor.memCriticalThreshold
+swap_pct_activity_threshold   = 80                                       # systemMonitor.swapWarningThreshold
+swap_pct_critical_threshold   = 90                                       # systemMonitor.swapCriticalThreshold
+disk_used_pct_activity_threshold = 80                                    # systemMonitor.diskWarningThreshold
+disk_used_pct_critical_threshold = 90                                    # systemMonitor.diskCriticalThreshold
+disk_free_pct_activity_threshold = 20                                    # systemMonitor.diskAvailWarningThreshold
+disk_free_pct_critical_threshold = 10                                    # systemMonitor.diskAvailCriticalThreshold
+
+[control_center]
+sidebar         = "compact"
+hidden_tabs     = ["monitor"]                                            # controlCenter brightness-card was disabled
+
+[control_center.calendar]
+show_events_card  = true                                                  # calendar weather-card/header-card enabled
+show_week_numbers = false                                                 # location.showWeekNumberInCalendar
+
+[dock]
+enabled = false
+
+[bar]
+order = ["main"]
+
+[bar.default]
+position            = "top"                                                # bar.position
+enabled             = true
+auto_hide           = false                                                 # bar.displayMode: "always_visible"
+show_on_workspace_switch = true                                             # bar.showOnWorkspaceSwitch
+background_opacity  = 0                                                     # bar.backgroundOpacity: 0
+border_width        = 0.0                                                   # bar.showOutline: false
+radius              = 12                                                    # bar.frameRadius
+concave_edge_corners = false                                                # bar.outerCorners: true
+margin_ends         = 4                                                     # bar.marginHorizontal (approx — tune visually)
+margin_edge         = 8                                                     # bar.frameThickness / barType: "floating" (approx)
+padding             = 2                                                     # bar.contentPadding (approx — tune visually)
+widget_spacing      = 6                                                     # bar.widgetSpacing
+scale               = 1.2                                                   # bar.fontScale
+capsule             = true                                                  # bar.showCapsule
+capsule_opacity     = 1.0                                                   # bar.capsuleOpacity
+
+start  = ["launcher", "wallpaper", "workspaces", "media"]
+center = ["clock"]
+end    = ["tray", "notifications", "clipboard", "network", "bluetooth", "volume", "battery", "control-center",]
+
+[widget.clock]
+
+[widget.network]
+show_label = false
+
+[widget.volume]
+show_label = false
